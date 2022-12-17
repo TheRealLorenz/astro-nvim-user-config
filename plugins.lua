@@ -2,18 +2,14 @@ local plugins = {
   init = {
     -- You can disable default plugins as follows:
     -- ["goolord/alpha-nvim"] = { disable = true },
-    {
-      "petertriho/nvim-scrollbar",
+
+    ["petertriho/nvim-scrollbar"] = {
       config = function() require("scrollbar").setup() end,
     },
-    {
-      "kylechui/nvim-surround",
+
+    ["kylechui/nvim-surround"] = {
       tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-      config = function()
-        require("nvim-surround").setup {
-          -- Configuration here, or leave empty to use defaults
-        }
-      end,
+      config = function() require("nvim-surround").setup() end,
     },
     -- You can also add new plugins here as well:
     -- Add plugins, the packer syntax without the "use"
