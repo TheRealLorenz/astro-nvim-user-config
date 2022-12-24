@@ -34,6 +34,9 @@ local plugins = {
     ["navarasu/onedark.nvim"] = {
       config = function() require("onedark").setup() end,
     },
+
+    -- SchemaStore 'https://www.schemastore.org/json/'
+    ["b0o/SchemaStore.nvim"] = {},
   },
 
   -- All other entries override the require("<key>").setup({...}) call for default plugins
