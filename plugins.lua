@@ -1,35 +1,41 @@
 local plugins = {
   init = {
-    -- You can disable default plugins as follows:
-    -- ["goolord/alpha-nvim"] = { disable = true },
 
     ["petertriho/nvim-scrollbar"] = {
       config = function() require("scrollbar").setup() end,
     },
 
+    -- Sorrounding things
     ["kylechui/nvim-surround"] = {
       tag = "*", -- Use for stability; omit to use `main` branch for the latest features
       config = function() require("nvim-surround").setup() end,
     },
-    -- You can also add new plugins here as well:
-    -- Add plugins, the packer syntax without the "use"
-    -- { "andweeb/presence.nvim" },
-    -- {
-    --   "ray-x/lsp_signature.nvim",
-    --   event = "BufRead",
-    --   config = function()
-    --     require("lsp_signature").setup()
-    --   end,
-    -- },
 
-    -- We also support a key value style plugin definition similar to NvChad:
-    -- ["ray-x/lsp_signature.nvim"] = {
-    --   event = "BufRead",
-    --   config = function()
-    --     require("lsp_signature").setup()
-    --   end,
-    -- },
+    -- Discord rich presence
+    ["andweeb/presence.nvim"] = {},
+
+    -- Function signatures
+    ["ray-x/lsp_signature.nvim"] = {
+      event = "BufRead",
+      config = function() require("lsp_signature").setup() end,
+    },
+
+    -- Better preview for goto
+    ["DNLHC/glance.nvim"] = {
+      config = function() require("glance").setup() end,
+    },
+
+    -- Swap items
+    ["mizlan/iswap.nvim"] = {
+      config = function() require("iswap").setup() end,
+    },
+
+    -- Colorscheme
+    ["navarasu/onedark.nvim"] = {
+      config = function() require("onedark").setup() end,
+    },
   },
+
   -- All other entries override the require("<key>").setup({...}) call for default plugins
   ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
     -- config variable is the default configuration table for the setup function call
