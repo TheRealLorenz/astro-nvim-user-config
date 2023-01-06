@@ -1,4 +1,4 @@
-local lsp = {
+local M = {
   -- enable servers that you already have installed without mason
   servers = {
     -- "pyright"
@@ -6,7 +6,7 @@ local lsp = {
   formatting = {
     -- control auto formatting on save
     format_on_save = {
-      enabled = true, -- enable or disable format on save globally
+      enabled = false, -- enable or disable format on save globally
       allow_filetypes = { -- enable format on save for specified filetypes only
         -- "go",
       },
@@ -39,15 +39,7 @@ local lsp = {
 
   -- Add overrides for LSP server settings, the keys are the name of the server
   ["server-settings"] = {
-    jsonls = {
-      settings = {
-        json = {
-          schemas = require("schemastore").json.schemas(),
-          valite = { enable = true },
-        },
-      },
-    },
-
+    jsonls = require "user.lsp.jsonls",
     yamlls = {
       settings = {
         schemaStore = { enable = true },
@@ -56,4 +48,4 @@ local lsp = {
   },
 }
 
-return lsp
+return M
